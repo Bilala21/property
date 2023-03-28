@@ -7,7 +7,7 @@ function ConnectToDb() {
         return
     }
     // mongodb://127.0.0.1:27017/property
-    mongoose.connect("mongodb://127.0.0.1:27017/property", {
+    mongoose.connect("mongodb+srv://bilal:z2Bfl9YSy0k3ODYl@cluster0.bqdbvzr.mongodb.net/property?retryWrites=true&w=majority", {
         useNewUrlParser: true
     })
     mongoose.connection.on("connected", () => {
