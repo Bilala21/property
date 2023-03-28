@@ -1,12 +1,12 @@
 import dynamic from "next/dynamic";
-import Seo from "../components/common/seo";
-import BlogV3 from "../components/blog-list-3";
+// import Seo from "../components/common/seo";
+// import BlogV3 from "../components/blog-list-3";
 
 const index = () => {
   return (
     <>
-      <Seo pageTitle="Blog Gid 3" />
-      <BlogV3 />
+      {/* <Seo pageTitle="Blog Gid 3" />
+      <BlogV3 /> */}
     </>
   );
 };
