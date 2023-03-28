@@ -1,18 +1,34 @@
-import GlobalFilter from "../common/GlobalFilter";
-import MobileMenu from "../common/header/MobileMenu";
-import WhyChoose from "../common/WhyChoose";
-import FeaturedProperties from "../home/FeaturedProperties";
-import FindProperties from "./FindProperties";
-import Header from "./Header";
-import LookingItem from "./LookingItem";
-import Testimonial from "../common/Testimonial";
-import Partners from "../common/Partners";
-import CallToAction from "../common/CallToAction";
-import Footer from "../common/footer/Footer";
-import CopyrightFooter from "../common/footer/CopyrightFooter";
-import Blogs from "../common/Blogs";
-import PopupSignInUp from "../common/PopupSignInUp";
-import Hero from "./Hero";
+// import GlobalFilter from "../common/GlobalFilter";
+
+import dynamic from 'next/dynamic';
+
+// const GlobalFilter = dynamic(() => import('../common/GlobalHeroFilter'));
+const MobileMenu = dynamic(() => import('../common/header/MobileMenu'));
+const FeaturedProperties = dynamic(() => import('../home/FeaturedProperties'));
+const FindProperties = dynamic(() => import('./FindProperties'));
+const Header = dynamic(() => import('./Header'));
+const Testimonial = dynamic(() => import('../common/Testimonial'));
+const Partners = dynamic(() => import('../common/Partners'));
+const CallToAction = dynamic(() => import('../common/CallToAction'));
+const Footer = dynamic(() => import('../common/footer/Footer'));
+const CopyrightFooter = dynamic(() => import('../common/footer/CopyrightFooter'));
+const Blogs = dynamic(() => import('../common/Blogs'));
+const PopupSignInUp = dynamic(() => import('../common/PopupSignInUp'));
+const Hero = dynamic(() => import('./Hero'));
+// import MobileMenu from "../common/header/MobileMenu";
+// import WhyChoose from "../common/WhyChoose";
+// import FeaturedProperties from "../home/FeaturedProperties";
+// import FindProperties from "./FindProperties";
+// import Header from "./Header";
+// import LookingItem from "./LookingItem";
+// import Testimonial from "../common/Testimonial";
+// import Partners from "../common/Partners";
+// import CallToAction from "../common/CallToAction";
+// import Footer from "../common/footer/Footer";
+// import CopyrightFooter from "../common/footer/CopyrightFooter";
+// import Blogs from "../common/Blogs";
+// import PopupSignInUp from "../common/PopupSignInUp";
+// import Hero from "./Hero";
 
 const Index = () => {
   return (

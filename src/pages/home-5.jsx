@@ -1,7 +1,8 @@
 import dynamic from "next/dynamic";
-import Seo from "../components/common/seo";
-import Home5 from "../components/home-5";
-
+// import Seo from "../components/common/seo";
+// import Home5 from "../components/home-5";
+const Seo = dynamic(() => import('../components/common/seo'));
+const Home5 = dynamic(() => import('../components/home-5'));
 const index = () => {
   return (
     <>

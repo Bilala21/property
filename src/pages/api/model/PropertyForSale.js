@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import User from "./User";
 const Schema = mongoose.Schema;
 const PropertySchema = new Schema({
     "title": {
@@ -23,7 +24,7 @@ const PropertySchema = new Schema({
     },
     "PostedBy": {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "User"
+        ref: User
     },
     "category_id": {
         type: mongoose.Schema.Types.ObjectId,
