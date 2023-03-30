@@ -1,7 +1,19 @@
 import mongoose from "mongoose";
 import User from "../model/User";
+import Category from "../model/Category";
 const Schema = mongoose.Schema;
 const PropertySchema = new Schema({
+    "category_id": {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: Category
+    },
+    "property_type_id": {
+        type: mongoose.Schema.Types.ObjectId
+    },
+    "PostedBy": {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: User
+    },
     "title": {
         type: String
     },
@@ -11,9 +23,6 @@ const PropertySchema = new Schema({
     "city": {
         type: String
     },
-    "property_type_id": {
-        type: mongoose.Schema.Types.ObjectId
-    },
     "is_saled": {
         type: Boolean,
         default: false
@@ -22,23 +31,16 @@ const PropertySchema = new Schema({
         type: Number,
         default: 0
     },
-    "PostedBy": {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: User
-    },
-    "category_id": {
-        type: mongoose.Schema.Types.ObjectId,
-    },
     "description": {
         type: String
     },
     "condition": {
         type: String
     },
-    "featured": {
+    "propety_type": {
         type: String
     },
-    "type": {
+    "featured": {
         type: String
     },
     "video_link": {
@@ -56,18 +58,8 @@ const PropertySchema = new Schema({
     "seller_type": {
         type: String
     },
-    "real_estate_agnet": {
-        type: String
-    },
-    "location": {
-        type: String
-    },
     "zoned_for": {
         type: String
-    },
-    "slug": {
-        type: String,
-        required:true
     },
     "bedrooms": {
         type: Number
@@ -90,17 +82,11 @@ const PropertySchema = new Schema({
     "maintenance_fess": {
         type: Number
     },
-    "price": {
-        type: Number
-    },
-    "quantity": {
-        type: Number
-    },
     "freehold": {
         type: Boolean
     },
-    "call_for_price": {
-        type: Boolean
+    "real_estate_agnet": {
+        type: String
     },
     "amenties": {
         type: Array
@@ -111,9 +97,28 @@ const PropertySchema = new Schema({
     "neightbourhood": {
         type: Array
     },
+    "price": {
+        type: Number
+    },
+    "location": {
+        type: String
+    },
+    "slug": {
+        type: String,
+        required: true
+    },
+    "freehold": {
+        type: Boolean
+    },
+    "call_for_price": {
+        type: Boolean,
+    },
+    "quantity": {
+        type: Number,
+    },
 
-},{
-    timestamps:true
+}, {
+    timestamps: true
 })
 
 export default mongoose.models.PropertyForSale || mongoose.model("PropertyForSale", PropertySchema);

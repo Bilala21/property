@@ -3,6 +3,10 @@ import User from "./User";
 import Category from "./Category";
 const Schema = mongoose.Schema;
 const PropertySchema = new Schema({
+    "category_id": {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: Category
+    },
     "property_type_id": {
         type: mongoose.Schema.Types.ObjectId
     },
@@ -10,9 +14,14 @@ const PropertySchema = new Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: User
     },
-    "category_id": {
-        type: mongoose.Schema.Types.ObjectId,
-        ref:Category
+    "title": {
+        type: String
+    },
+    "country": {
+        type: String
+    },
+    "city": {
+        type: String
     },
     "is_saled": {
         type: Boolean,
@@ -22,58 +31,49 @@ const PropertySchema = new Schema({
         type: Number,
         default: 0
     },
-    "country": {
-        type: String
-    },
-    "city": {
-        type: String
-    },
-    "title": {
+    "description": {
         type: String
     },
     "condition": {
         type: String
     },
-    "neighbourhood": {
+    "propety_type": {
+        type: String
+    },
+    "featured": {
+        type: String
+    },
+    "slug": {
+        type: String
+    },
+    "neightbourhood": {
         type: Array
     },
     "video_link": {
         type: String
     },
-    "property_type": {
-        type: String
+    "bedrooms": {
+        type: Number
     },
     "daily_monthly": {
         type: String
     },
-    "bedrooms": {
-        type: Number
-    },
-    "contract_period_in_month": {
-        type: Number
-    },
-    "notice_period_in_month": {
-        type: Number
-    },
-    "security_deposite": {
-        type: Number
-    },
-    "room_type": {
-        type: String
-    },
-    "no_of_tenants": {
-        type: Number
-    },
     "preferred_tenant_nationality": {
         type: String
     },
-    "type_of_tenant": {
+    "type_of_tenant_allowed": {
+        type: String
+    },
+    "roome_type": {
         type: String
     },
     "bathrooms": {
         type: Number
     },
-    "size": {
+    "no_of_tenants": {
+        type: Number
+    },
+    "security_deposite": {
         type: Number
     },
     "furnished_unfurnished": {
@@ -91,8 +91,11 @@ const PropertySchema = new Schema({
     "real_estate_agent": {
         type: String
     },
-    "slug": {
-        type: String
+    "amenties": {
+        type: Array
+    },
+    "images": {
+        type: Array
     },
     "location": {
         type: String
@@ -100,18 +103,21 @@ const PropertySchema = new Schema({
     "price": {
         type: Number
     },
+    "contract_perion_in_month": {
+        type: Number
+    },
+    "notice_perion_in_month": {
+        type: Number
+    },
     "call_for_price": {
         type: Boolean
     },
     "quantity": {
-        type: Number
-    },
-    "amenties": {
-        type: Array
+        type: Boolean
     },
 
 }, {
     timestamps: true
 })
 
-export default mongoose.models.PropertyForRent || mongoose.model("PropertyForRent", PropertySchema);
+export default mongoose.models.PropertyForSale || mongoose.model("PropertyForSale", PropertySchema);
