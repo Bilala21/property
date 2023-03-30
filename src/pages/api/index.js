@@ -1,9 +1,9 @@
 import expressAsyncHandler from "express-async-handler";
-import ConnectToDb from "./dbConnection";
-import Vehilce from "./model/Vehilce";
-import Category from "./model/Category";
-import PropertyForSale from "./model/PropertyForSale";
-import PropertyForRent from "./model/PropertyForRent";
+import ConnectToDb from "../../../dbConnection";
+import Vehilce from "../../../model/Vehilce";
+import Category from "../../../model/Category";
+import PropertyForSale from "../../../model/PropertyForSale";
+import PropertyForRent from "../../../model/PropertyForRent";
 export const config = {
     api: {
         bodyParser: true,

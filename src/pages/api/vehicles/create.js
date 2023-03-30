@@ -1,6 +1,6 @@
 import expressAsyncHandler from "express-async-handler";
-import ConnectToDb from "../dbConnection";
-import Vehilce from "../model/Vehilce";
+import ConnectToDb from "../../../../dbConnection";
+import Vehilce from "../../../../model/Vehilce";
 export const config = {
     api: {
         bodyParser: true,
