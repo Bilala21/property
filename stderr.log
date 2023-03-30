@@ -1,0 +1,181 @@
+warn  - Attempted to load @next/swc-linux-x64-gnu, but an error occurred: /lib64/libc.so.6: version `GLIBC_2.14' not found (required by /home/mbilalkalri/nodevenv/property-testing.staging-bk.site/14/lib/node_modules/@next/swc-linux-x64-gnu/next-swc.linux-x64-gnu.node)
+warn  - Attempted to load @next/swc-linux-x64-gnux32, but it was not installed
+warn  - Attempted to load @next/swc-linux-x64-musl, but an error occurred: libc.musl-x86_64.so.1: cannot open shared object file: No such file or directory
+(node:156452) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 client/ listeners added to [EventEmitter]. Use emitter.setMaxListeners() to increase limit
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:156452) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 server/ listeners added to [EventEmitter]. Use emitter.setMaxListeners() to increase limit
+Do not add stylesheets using next/head (see <link rel="stylesheet"> tag with href="https://fonts.googleapis.com/css?family=Nunito:400,400i,500,600,700&display=swap"). Use Document instead. 
+See more info here: https://nextjs.org/docs/messages/no-stylesheets-in-head-component
+error - MissingSchemaError: Schema hasn't been registered for model "User".
+Use mongoose.model(name, schema)
+    at NativeConnection.Connection.model (/home/mbilalkalri/nodevenv/property-testing.staging-bk.site/14/lib/node_modules/mongoose/lib/connection.js:1247:13)
+    at _getModelFromConn (/home/mbilalkalri/nodevenv/property-testing.staging-bk.site/14/lib/node_modules/mongoose/lib/helpers/populate/getModelsMapForPopulate.js:580:15)
+    at addModelNamesToMap (/home/mbilalkalri/nodevenv/property-testing.staging-bk.site/14/lib/node_modules/mongoose/lib/helpers/populate/getModelsMapForPopulate.js:508:17)
+    at getModelsMapForPopulate (/home/mbilalkalri/nodevenv/property-testing.staging-bk.site/14/lib/node_modules/mongoose/lib/helpers/populate/getModelsMapForPopulate.js:198:7)
+    at populate (/home/mbilalkalri/nodevenv/property-testing.staging-bk.site/14/lib/node_modules/mongoose/lib/model.js:4770:21)
+    at _populate (/home/mbilalkalri/nodevenv/property-testing.staging-bk.site/14/lib/node_modules/mongoose/lib/model.js:4730:5)
+    at /home/mbilalkalri/nodevenv/property-testing.staging-bk.site/14/lib/node_modules/mongoose/lib/model.js:4707:5
+    at promiseOrCallback (/home/mbilalkalri/nodevenv/property-testing.staging-bk.site/14/lib/node_modules/mongoose/lib/helpers/promiseOrCallback.js:11:14)
+    at Mongoose._promiseOrCallback (/home/mbilalkalri/nodevenv/property-testing.staging-bk.site/14/lib/node_modules/mongoose/lib/index.js:1288:10)
+    at Function.Model.populate (/home/mbilalkalri/nodevenv/property-testing.staging-bk.site/14/lib/node_modules/mongoose/lib/model.js:4705:23) {
+  page: '/api'
+}
+warn  - Attempted to load @next/swc-linux-x64-gnu, but an error occurred: /lib64/libc.so.6: version `GLIBC_2.14' not found (required by /home/mbilalkalri/nodevenv/property-testing.staging-bk.site/14/lib/node_modules/@next/swc-linux-x64-gnu/next-swc.linux-x64-gnu.node)
+warn  - Attempted to load @next/swc-linux-x64-gnux32, but it was not installed
+warn  - Attempted to load @next/swc-linux-x64-musl, but an error occurred: libc.musl-x86_64.so.1: cannot open shared object file: No such file or directory
+Do not add stylesheets using next/head (see <link rel="stylesheet"> tag with href="https://fonts.googleapis.com/css?family=Nunito:400,400i,500,600,700&display=swap"). Use Document instead. 
+See more info here: https://nextjs.org/docs/messages/no-stylesheets-in-head-component
+error - MissingSchemaError: Schema hasn't been registered for model "User".
+Use mongoose.model(name, schema)
+    at NativeConnection.Connection.model (/home/mbilalkalri/nodevenv/property-testing.staging-bk.site/14/lib/node_modules/mongoose/lib/connection.js:1247:13)
+    at _getModelFromConn (/home/mbilalkalri/nodevenv/property-testing.staging-bk.site/14/lib/node_modules/mongoose/lib/helpers/populate/getModelsMapForPopulate.js:580:15)
+    at addModelNamesToMap (/home/mbilalkalri/nodevenv/property-testing.staging-bk.site/14/lib/node_modules/mongoose/lib/helpers/populate/getModelsMapForPopulate.js:508:17)
+    at getModelsMapForPopulate (/home/mbilalkalri/nodevenv/property-testing.staging-bk.site/14/lib/node_modules/mongoose/lib/helpers/populate/getModelsMapForPopulate.js:198:7)
+    at populate (/home/mbilalkalri/nodevenv/property-testing.staging-bk.site/14/lib/node_modules/mongoose/lib/model.js:4770:21)
+    at _populate (/home/mbilalkalri/nodevenv/property-testing.staging-bk.site/14/lib/node_modules/mongoose/lib/model.js:4730:5)
+    at /home/mbilalkalri/nodevenv/property-testing.staging-bk.site/14/lib/node_modules/mongoose/lib/model.js:4707:5
+    at promiseOrCallback (/home/mbilalkalri/nodevenv/property-testing.staging-bk.site/14/lib/node_modules/mongoose/lib/helpers/promiseOrCallback.js:11:14)
+    at Mongoose._promiseOrCallback (/home/mbilalkalri/nodevenv/property-testing.staging-bk.site/14/lib/node_modules/mongoose/lib/index.js:1288:10)
+    at Function.Model.populate (/home/mbilalkalri/nodevenv/property-testing.staging-bk.site/14/lib/node_modules/mongoose/lib/model.js:4705:23) {
+  page: '/api'
+}
+warn  - Attempted to load @next/swc-linux-x64-gnu, but an error occurred: /lib64/libc.so.6: version `GLIBC_2.14' not found (required by /home/mbilalkalri/nodevenv/property-testing.staging-bk.site/14/lib/node_modules/@next/swc-linux-x64-gnu/next-swc.linux-x64-gnu.node)
+warn  - Attempted to load @next/swc-linux-x64-gnux32, but it was not installed
+warn  - Attempted to load @next/swc-linux-x64-musl, but an error occurred: libc.musl-x86_64.so.1: cannot open shared object file: No such file or directory
+Do not add stylesheets using next/head (see <link rel="stylesheet"> tag with href="https://fonts.googleapis.com/css?family=Nunito:400,400i,500,600,700&display=swap"). Use Document instead. 
+See more info here: https://nextjs.org/docs/messages/no-stylesheets-in-head-component
+warn  - Attempted to load @next/swc-linux-x64-gnu, but an error occurred: /lib64/libc.so.6: version `GLIBC_2.14' not found (required by /home/mbilalkalri/nodevenv/property-testing.staging-bk.site/14/lib/node_modules/@next/swc-linux-x64-gnu/next-swc.linux-x64-gnu.node)
+warn  - Attempted to load @next/swc-linux-x64-gnux32, but it was not installed
+warn  - Attempted to load @next/swc-linux-x64-musl, but an error occurred: libc.musl-x86_64.so.1: cannot open shared object file: No such file or directory
+Do not add stylesheets using next/head (see <link rel="stylesheet"> tag with href="https://fonts.googleapis.com/css?family=Nunito:400,400i,500,600,700&display=swap"). Use Document instead. 
+See more info here: https://nextjs.org/docs/messages/no-stylesheets-in-head-component
+called `injectEndpoints` to override already-existing endpointName getProduct without specifying `overrideExisting: true`
+warn  - Attempted to load @next/swc-linux-x64-gnu, but an error occurred: /lib64/libc.so.6: version `GLIBC_2.14' not found (required by /home/mbilalkalri/nodevenv/property-testing.staging-bk.site/14/lib/node_modules/@next/swc-linux-x64-gnu/next-swc.linux-x64-gnu.node)
+warn  - Attempted to load @next/swc-linux-x64-gnux32, but it was not installed
+warn  - Attempted to load @next/swc-linux-x64-musl, but an error occurred: libc.musl-x86_64.so.1: cannot open shared object file: No such file or directory
+Do not add stylesheets using next/head (see <link rel="stylesheet"> tag with href="https://fonts.googleapis.com/css?family=Nunito:400,400i,500,600,700&display=swap"). Use Document instead. 
+See more info here: https://nextjs.org/docs/messages/no-stylesheets-in-head-component
+warn  - Attempted to load @next/swc-linux-x64-gnu, but an error occurred: /lib64/libc.so.6: version `GLIBC_2.14' not found (required by /home/mbilalkalri/nodevenv/property-testing.staging-bk.site/14/lib/node_modules/@next/swc-linux-x64-gnu/next-swc.linux-x64-gnu.node)
+warn  - Attempted to load @next/swc-linux-x64-gnux32, but it was not installed
+warn  - Attempted to load @next/swc-linux-x64-musl, but an error occurred: libc.musl-x86_64.so.1: cannot open shared object file: No such file or directory
+Do not add stylesheets using next/head (see <link rel="stylesheet"> tag with href="https://fonts.googleapis.com/css?family=Nunito:400,400i,500,600,700&display=swap"). Use Document instead. 
+See more info here: https://nextjs.org/docs/messages/no-stylesheets-in-head-component
+warn  - Attempted to load @next/swc-linux-x64-gnu, but an error occurred: /lib64/libc.so.6: version `GLIBC_2.14' not found (required by /home/mbilalkalri/nodevenv/property-testing.staging-bk.site/14/lib/node_modules/@next/swc-linux-x64-gnu/next-swc.linux-x64-gnu.node)
+warn  - Attempted to load @next/swc-linux-x64-gnux32, but it was not installed
+warn  - Attempted to load @next/swc-linux-x64-musl, but an error occurred: libc.musl-x86_64.so.1: cannot open shared object file: No such file or directory
+Do not add stylesheets using next/head (see <link rel="stylesheet"> tag with href="https://fonts.googleapis.com/css?family=Nunito:400,400i,500,600,700&display=swap"). Use Document instead. 
+See more info here: https://nextjs.org/docs/messages/no-stylesheets-in-head-component
+warn  - Attempted to load @next/swc-linux-x64-gnu, but an error occurred: /lib64/libc.so.6: version `GLIBC_2.14' not found (required by /home/mbilalkalri/nodevenv/property-testing.staging-bk.site/14/lib/node_modules/@next/swc-linux-x64-gnu/next-swc.linux-x64-gnu.node)
+warn  - Attempted to load @next/swc-linux-x64-gnux32, but it was not installed
+warn  - Attempted to load @next/swc-linux-x64-musl, but an error occurred: libc.musl-x86_64.so.1: cannot open shared object file: No such file or directory
+Do not add stylesheets using next/head (see <link rel="stylesheet"> tag with href="https://fonts.googleapis.com/css?family=Nunito:400,400i,500,600,700&display=swap"). Use Document instead. 
+See more info here: https://nextjs.org/docs/messages/no-stylesheets-in-head-component
+warn  - Attempted to load @next/swc-linux-x64-gnu, but an error occurred: /lib64/libc.so.6: version `GLIBC_2.14' not found (required by /home/mbilalkalri/nodevenv/property-testing.staging-bk.site/14/lib/node_modules/@next/swc-linux-x64-gnu/next-swc.linux-x64-gnu.node)
+warn  - Attempted to load @next/swc-linux-x64-gnux32, but it was not installed
+warn  - Attempted to load @next/swc-linux-x64-musl, but an error occurred: libc.musl-x86_64.so.1: cannot open shared object file: No such file or directory
+Do not add stylesheets using next/head (see <link rel="stylesheet"> tag with href="https://fonts.googleapis.com/css?family=Nunito:400,400i,500,600,700&display=swap"). Use Document instead. 
+See more info here: https://nextjs.org/docs/messages/no-stylesheets-in-head-component
+warn  - Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/basic-features/fast-refresh#how-it-works
+warn  - Attempted to load @next/swc-linux-x64-gnu, but an error occurred: /lib64/libc.so.6: version `GLIBC_2.14' not found (required by /home/mbilalkalri/nodevenv/property-testing.staging-bk.site/14/lib/node_modules/@next/swc-linux-x64-gnu/next-swc.linux-x64-gnu.node)
+warn  - Attempted to load @next/swc-linux-x64-gnux32, but it was not installed
+warn  - Attempted to load @next/swc-linux-x64-musl, but an error occurred: libc.musl-x86_64.so.1: cannot open shared object file: No such file or directory
+Do not add stylesheets using next/head (see <link rel="stylesheet"> tag with href="https://fonts.googleapis.com/css?family=Nunito:400,400i,500,600,700&display=swap"). Use Document instead. 
+See more info here: https://nextjs.org/docs/messages/no-stylesheets-in-head-component
+warn  - Attempted to load @next/swc-linux-x64-gnu, but an error occurred: /lib64/libc.so.6: version `GLIBC_2.14' not found (required by /home/mbilalkalri/nodevenv/property-testing.staging-bk.site/14/lib/node_modules/@next/swc-linux-x64-gnu/next-swc.linux-x64-gnu.node)
+warn  - Attempted to load @next/swc-linux-x64-gnux32, but it was not installed
+warn  - Attempted to load @next/swc-linux-x64-musl, but an error occurred: libc.musl-x86_64.so.1: cannot open shared object file: No such file or directory
+Do not add stylesheets using next/head (see <link rel="stylesheet"> tag with href="https://fonts.googleapis.com/css?family=Nunito:400,400i,500,600,700&display=swap"). Use Document instead. 
+See more info here: https://nextjs.org/docs/messages/no-stylesheets-in-head-component
+warn  - Attempted to load @next/swc-linux-x64-gnu, but an error occurred: /lib64/libc.so.6: version `GLIBC_2.14' not found (required by /home/mbilalkalri/nodevenv/property-testing.staging-bk.site/14/lib/node_modules/@next/swc-linux-x64-gnu/next-swc.linux-x64-gnu.node)
+warn  - Attempted to load @next/swc-linux-x64-gnux32, but it was not installed
+warn  - Attempted to load @next/swc-linux-x64-musl, but an error occurred: libc.musl-x86_64.so.1: cannot open shared object file: No such file or directory
+Do not add stylesheets using next/head (see <link rel="stylesheet"> tag with href="https://fonts.googleapis.com/css?family=Nunito:400,400i,500,600,700&display=swap"). Use Document instead. 
+See more info here: https://nextjs.org/docs/messages/no-stylesheets-in-head-component
+warn  - Attempted to load @next/swc-linux-x64-gnu, but an error occurred: /lib64/libc.so.6: version `GLIBC_2.14' not found (required by /home/mbilalkalri/nodevenv/property-testing.staging-bk.site/14/lib/node_modules/@next/swc-linux-x64-gnu/next-swc.linux-x64-gnu.node)
+warn  - Attempted to load @next/swc-linux-x64-gnux32, but it was not installed
+warn  - Attempted to load @next/swc-linux-x64-musl, but an error occurred: libc.musl-x86_64.so.1: cannot open shared object file: No such file or directory
+Do not add stylesheets using next/head (see <link rel="stylesheet"> tag with href="https://fonts.googleapis.com/css?family=Nunito:400,400i,500,600,700&display=swap"). Use Document instead. 
+See more info here: https://nextjs.org/docs/messages/no-stylesheets-in-head-component
+warn  - Attempted to load @next/swc-linux-x64-gnu, but an error occurred: /lib64/libc.so.6: version `GLIBC_2.14' not found (required by /home/mbilalkalri/nodevenv/property-testing.staging-bk.site/14/lib/node_modules/@next/swc-linux-x64-gnu/next-swc.linux-x64-gnu.node)
+warn  - Attempted to load @next/swc-linux-x64-gnux32, but it was not installed
+warn  - Attempted to load @next/swc-linux-x64-musl, but an error occurred: libc.musl-x86_64.so.1: cannot open shared object file: No such file or directory
+Do not add stylesheets using next/head (see <link rel="stylesheet"> tag with href="https://fonts.googleapis.com/css?family=Nunito:400,400i,500,600,700&display=swap"). Use Document instead. 
+See more info here: https://nextjs.org/docs/messages/no-stylesheets-in-head-component
+warn  - Attempted to load @next/swc-linux-x64-gnu, but an error occurred: /lib64/libc.so.6: version `GLIBC_2.14' not found (required by /home/mbilalkalri/nodevenv/property-testing.staging-bk.site/14/lib/node_modules/@next/swc-linux-x64-gnu/next-swc.linux-x64-gnu.node)
+warn  - Attempted to load @next/swc-linux-x64-gnux32, but it was not installed
+warn  - Attempted to load @next/swc-linux-x64-musl, but an error occurred: libc.musl-x86_64.so.1: cannot open shared object file: No such file or directory
+Do not add stylesheets using next/head (see <link rel="stylesheet"> tag with href="https://fonts.googleapis.com/css?family=Nunito:400,400i,500,600,700&display=swap"). Use Document instead. 
+See more info here: https://nextjs.org/docs/messages/no-stylesheets-in-head-component
+warn  - Attempted to load @next/swc-linux-x64-gnu, but an error occurred: /lib64/libc.so.6: version `GLIBC_2.14' not found (required by /home/mbilalkalri/nodevenv/property-testing.staging-bk.site/14/lib/node_modules/@next/swc-linux-x64-gnu/next-swc.linux-x64-gnu.node)
+warn  - Attempted to load @next/swc-linux-x64-gnux32, but it was not installed
+warn  - Attempted to load @next/swc-linux-x64-musl, but an error occurred: libc.musl-x86_64.so.1: cannot open shared object file: No such file or directory
+Do not add stylesheets using next/head (see <link rel="stylesheet"> tag with href="https://fonts.googleapis.com/css?family=Nunito:400,400i,500,600,700&display=swap"). Use Document instead. 
+See more info here: https://nextjs.org/docs/messages/no-stylesheets-in-head-component
+warn  - Attempted to load @next/swc-linux-x64-gnu, but an error occurred: /lib64/libc.so.6: version `GLIBC_2.14' not found (required by /home/mbilalkalri/nodevenv/property-testing.staging-bk.site/14/lib/node_modules/@next/swc-linux-x64-gnu/next-swc.linux-x64-gnu.node)
+warn  - Attempted to load @next/swc-linux-x64-gnux32, but it was not installed
+warn  - Attempted to load @next/swc-linux-x64-musl, but an error occurred: libc.musl-x86_64.so.1: cannot open shared object file: No such file or directory
+Do not add stylesheets using next/head (see <link rel="stylesheet"> tag with href="https://fonts.googleapis.com/css?family=Nunito:400,400i,500,600,700&display=swap"). Use Document instead. 
+See more info here: https://nextjs.org/docs/messages/no-stylesheets-in-head-component
+warn  - Attempted to load @next/swc-linux-x64-gnu, but an error occurred: /lib64/libc.so.6: version `GLIBC_2.14' not found (required by /home/mbilalkalri/nodevenv/property-testing.staging-bk.site/14/lib/node_modules/@next/swc-linux-x64-gnu/next-swc.linux-x64-gnu.node)
+warn  - Attempted to load @next/swc-linux-x64-gnux32, but it was not installed
+warn  - Attempted to load @next/swc-linux-x64-musl, but an error occurred: libc.musl-x86_64.so.1: cannot open shared object file: No such file or directory
+Do not add stylesheets using next/head (see <link rel="stylesheet"> tag with href="https://fonts.googleapis.com/css?family=Nunito:400,400i,500,600,700&display=swap"). Use Document instead. 
+See more info here: https://nextjs.org/docs/messages/no-stylesheets-in-head-component
+warn  - Attempted to load @next/swc-linux-x64-gnu, but an error occurred: /lib64/libc.so.6: version `GLIBC_2.14' not found (required by /home/mbilalkalri/nodevenv/property-testing.staging-bk.site/14/lib/node_modules/@next/swc-linux-x64-gnu/next-swc.linux-x64-gnu.node)
+warn  - Attempted to load @next/swc-linux-x64-gnux32, but it was not installed
+warn  - Attempted to load @next/swc-linux-x64-musl, but an error occurred: libc.musl-x86_64.so.1: cannot open shared object file: No such file or directory
+Do not add stylesheets using next/head (see <link rel="stylesheet"> tag with href="https://fonts.googleapis.com/css?family=Nunito:400,400i,500,600,700&display=swap"). Use Document instead. 
+See more info here: https://nextjs.org/docs/messages/no-stylesheets-in-head-component
+warn  - Attempted to load @next/swc-linux-x64-gnu, but an error occurred: /lib64/libc.so.6: version `GLIBC_2.14' not found (required by /home/mbilalkalri/nodevenv/property-testing.staging-bk.site/14/lib/node_modules/@next/swc-linux-x64-gnu/next-swc.linux-x64-gnu.node)
+warn  - Attempted to load @next/swc-linux-x64-gnux32, but it was not installed
+warn  - Attempted to load @next/swc-linux-x64-musl, but an error occurred: libc.musl-x86_64.so.1: cannot open shared object file: No such file or directory
+Do not add stylesheets using next/head (see <link rel="stylesheet"> tag with href="https://fonts.googleapis.com/css?family=Nunito:400,400i,500,600,700&display=swap"). Use Document instead. 
+See more info here: https://nextjs.org/docs/messages/no-stylesheets-in-head-component
+warn  - Attempted to load @next/swc-linux-x64-gnu, but an error occurred: /lib64/libc.so.6: version `GLIBC_2.14' not found (required by /home/mbilalkalri/nodevenv/property-testing.staging-bk.site/14/lib/node_modules/@next/swc-linux-x64-gnu/next-swc.linux-x64-gnu.node)
+warn  - Attempted to load @next/swc-linux-x64-gnux32, but it was not installed
+warn  - Attempted to load @next/swc-linux-x64-musl, but an error occurred: libc.musl-x86_64.so.1: cannot open shared object file: No such file or directory
+Do not add stylesheets using next/head (see <link rel="stylesheet"> tag with href="https://fonts.googleapis.com/css?family=Nunito:400,400i,500,600,700&display=swap"). Use Document instead. 
+See more info here: https://nextjs.org/docs/messages/no-stylesheets-in-head-component
+warn  - Attempted to load @next/swc-linux-x64-gnu, but an error occurred: /lib64/libc.so.6: version `GLIBC_2.14' not found (required by /home/mbilalkalri/nodevenv/property-testing.staging-bk.site/14/lib/node_modules/@next/swc-linux-x64-gnu/next-swc.linux-x64-gnu.node)
+warn  - Attempted to load @next/swc-linux-x64-gnux32, but it was not installed
+warn  - Attempted to load @next/swc-linux-x64-musl, but an error occurred: libc.musl-x86_64.so.1: cannot open shared object file: No such file or directory
+Do not add stylesheets using next/head (see <link rel="stylesheet"> tag with href="https://fonts.googleapis.com/css?family=Nunito:400,400i,500,600,700&display=swap"). Use Document instead. 
+See more info here: https://nextjs.org/docs/messages/no-stylesheets-in-head-component
+warn  - Attempted to load @next/swc-linux-x64-gnu, but an error occurred: /lib64/libc.so.6: version `GLIBC_2.14' not found (required by /home/mbilalkalri/nodevenv/property-testing.staging-bk.site/14/lib/node_modules/@next/swc-linux-x64-gnu/next-swc.linux-x64-gnu.node)
+warn  - Attempted to load @next/swc-linux-x64-gnux32, but it was not installed
+warn  - Attempted to load @next/swc-linux-x64-musl, but an error occurred: libc.musl-x86_64.so.1: cannot open shared object file: No such file or directory
+Do not add stylesheets using next/head (see <link rel="stylesheet"> tag with href="https://fonts.googleapis.com/css?family=Nunito:400,400i,500,600,700&display=swap"). Use Document instead. 
+See more info here: https://nextjs.org/docs/messages/no-stylesheets-in-head-component
+warn  - Attempted to load @next/swc-linux-x64-gnu, but an error occurred: /lib64/libc.so.6: version `GLIBC_2.14' not found (required by /home/mbilalkalri/nodevenv/property-testing.staging-bk.site/14/lib/node_modules/@next/swc-linux-x64-gnu/next-swc.linux-x64-gnu.node)
+warn  - Attempted to load @next/swc-linux-x64-gnux32, but it was not installed
+warn  - Attempted to load @next/swc-linux-x64-musl, but an error occurred: libc.musl-x86_64.so.1: cannot open shared object file: No such file or directory
+Do not add stylesheets using next/head (see <link rel="stylesheet"> tag with href="https://fonts.googleapis.com/css?family=Nunito:400,400i,500,600,700&display=swap"). Use Document instead. 
+See more info here: https://nextjs.org/docs/messages/no-stylesheets-in-head-component
+warn  - Attempted to load @next/swc-linux-x64-gnu, but an error occurred: /lib64/libc.so.6: version `GLIBC_2.14' not found (required by /home/mbilalkalri/nodevenv/property-testing.staging-bk.site/14/lib/node_modules/@next/swc-linux-x64-gnu/next-swc.linux-x64-gnu.node)
+warn  - Attempted to load @next/swc-linux-x64-gnux32, but it was not installed
+warn  - Attempted to load @next/swc-linux-x64-musl, but an error occurred: libc.musl-x86_64.so.1: cannot open shared object file: No such file or directory
+Do not add stylesheets using next/head (see <link rel="stylesheet"> tag with href="https://fonts.googleapis.com/css?family=Nunito:400,400i,500,600,700&display=swap"). Use Document instead. 
+See more info here: https://nextjs.org/docs/messages/no-stylesheets-in-head-component
+warn  - Attempted to load @next/swc-linux-x64-gnu, but an error occurred: /lib64/libc.so.6: version `GLIBC_2.14' not found (required by /home/mbilalkalri/nodevenv/property-testing.staging-bk.site/14/lib/node_modules/@next/swc-linux-x64-gnu/next-swc.linux-x64-gnu.node)
+warn  - Attempted to load @next/swc-linux-x64-gnux32, but it was not installed
+warn  - Attempted to load @next/swc-linux-x64-musl, but an error occurred: libc.musl-x86_64.so.1: cannot open shared object file: No such file or directory
+Do not add stylesheets using next/head (see <link rel="stylesheet"> tag with href="https://fonts.googleapis.com/css?family=Nunito:400,400i,500,600,700&display=swap"). Use Document instead. 
+See more info here: https://nextjs.org/docs/messages/no-stylesheets-in-head-component
+warn  - Attempted to load @next/swc-linux-x64-gnu, but an error occurred: /lib64/libc.so.6: version `GLIBC_2.14' not found (required by /home/mbilalkalri/nodevenv/property-testing.staging-bk.site/14/lib/node_modules/@next/swc-linux-x64-gnu/next-swc.linux-x64-gnu.node)
+warn  - Attempted to load @next/swc-linux-x64-gnux32, but it was not installed
+warn  - Attempted to load @next/swc-linux-x64-musl, but an error occurred: libc.musl-x86_64.so.1: cannot open shared object file: No such file or directory
+Do not add stylesheets using next/head (see <link rel="stylesheet"> tag with href="https://fonts.googleapis.com/css?family=Nunito:400,400i,500,600,700&display=swap"). Use Document instead. 
+See more info here: https://nextjs.org/docs/messages/no-stylesheets-in-head-component
+warn  - Attempted to load @next/swc-linux-x64-gnu, but an error occurred: /lib64/libc.so.6: version `GLIBC_2.14' not found (required by /home/mbilalkalri/nodevenv/property-testing.staging-bk.site/14/lib/node_modules/@next/swc-linux-x64-gnu/next-swc.linux-x64-gnu.node)
+warn  - Attempted to load @next/swc-linux-x64-gnux32, but it was not installed
+warn  - Attempted to load @next/swc-linux-x64-musl, but an error occurred: libc.musl-x86_64.so.1: cannot open shared object file: No such file or directory
+Do not add stylesheets using next/head (see <link rel="stylesheet"> tag with href="https://fonts.googleapis.com/css?family=Nunito:400,400i,500,600,700&display=swap"). Use Document instead. 
+See more info here: https://nextjs.org/docs/messages/no-stylesheets-in-head-component
+warn  - Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/basic-features/fast-refresh#how-it-works
+warn  - Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/basic-features/fast-refresh#how-it-works
+warn  - Attempted to load @next/swc-linux-x64-gnu, but an error occurred: /lib64/libc.so.6: version `GLIBC_2.14' not found (required by /home/mbilalkalri/nodevenv/property-testing.staging-bk.site/14/lib/node_modules/@next/swc-linux-x64-gnu/next-swc.linux-x64-gnu.node)
+warn  - Attempted to load @next/swc-linux-x64-gnux32, but it was not installed
+warn  - Attempted to load @next/swc-linux-x64-musl, but an error occurred: libc.musl-x86_64.so.1: cannot open shared object file: No such file or directory
+Do not add stylesheets using next/head (see <link rel="stylesheet"> tag with href="https://fonts.googleapis.com/css?family=Nunito:400,400i,500,600,700&display=swap"). Use Document instead. 
+See more info here: https://nextjs.org/docs/messages/no-stylesheets-in-head-component
+warn  - Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/basic-features/fast-refresh#how-it-works
