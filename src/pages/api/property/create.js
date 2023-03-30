@@ -15,6 +15,6 @@ export default async (req, res) => {
         return res.send(err)
     }
     console.log(err, fields, files);
-    return res.send(files)
+    return res.send(files.images)
   });
 };
