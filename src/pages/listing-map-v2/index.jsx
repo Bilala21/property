@@ -1,12 +1,12 @@
 import dynamic from "next/dynamic";
-// import Seo from "../../components/common/seo";
-// import ListingMapV2 from "../../components/listing-half-map/listing-map-v2";
+import Seo from "../../components/common/seo";
+import ListingMapV2 from "../../components/listing-half-map/listing-map-v2";
 
 const index = () => {
   return (
     <>
-      {/* <Seo pageTitle="Listing - Map V2" />
-      <ListingMapV2 /> */}
+      <Seo pageTitle="Listing - Map V2" />
+      <ListingMapV2 />
     </>
   );
 };
