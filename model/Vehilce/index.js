@@ -3,189 +3,189 @@ import User from "../User";
 const Schema = mongoose.Schema;
 
 const VehicleSchema = new Schema({
-    "images": {
-        type: Array
-    },
-    "category": {
+    "category_id": {
         type: mongoose.Schema.Types.ObjectId,
+        ref: Category,
+        required: true
     },
-    "sub_category": {
+    "category_type_id": {
         type: mongoose.Schema.Types.ObjectId,
+        required: true
+    },
+    "PostedBy": {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: User,
+        required: true
     },
     "is_saled": {
         type: Boolean,
-        default: 0
+        default: "0"
     },
     "views": {
-        type: Boolean,
-        default: 0
+        type: Array,
+        default: "0"
     },
-    "postedBy": {
-        type: mongoose.Schema.Types.ObjectId,
-        ref:User
+    "slug": {
+        type: String,
+        required: true
     },
-    "title":{
-        type:String
+    "images": {
+        type: Array
     },
-    "description":{
-        type:String
+    "title": {
+        type: String,
+        required:true
     },
-    "condition":{
-        type:String
+    "description": {
+        type: String
     },
-    "city":{
-        type:String
+    "condition": {
+        type: String
     },
-    "country":{
-        type:String
+    "city": {
+        type: String,
+        required:true
     },
-    "neighbourhood":{
-        type:Array
+    "country": {
+        type: String,
+        required:true
     },
-    "video_link":{
-        type:String
+    "neighbourhood": {
+        type: Array
     },
-    "maker":{
-        type:String
+    "video_link": {
+        type: String
     },
-    "model":{
-        type:String
+    "spare_type": {
+        type: String
     },
-    "year":{
-        type:String
+    "vehicle_type": {
+        type: String
     },
-    "kilometers":{
-        type:Number
+    "no_plate_city": {
+        type: String
     },
-    "warranty":{
-        type:String
+    "no_plate_type": {
+        type: String
     },
-    "color":{
-        type:String
+    "no_plate_code": {
+        type: String
     },
-    "regional_specs":{
-        type:String
+    "plate_no": {
+        type: String
     },
-    "chassis_number":{
-        type:String
+    "no_plate_digits": {
+        type: String
     },
-    "transmission_type":{
-        type:String
+    "vehicle_sub_type": {
+        type: String
     },
-    "spare_part_type":{
-        type:String
+    "age": {
+        type: String
     },
-    "spare_part_condition":{
-        type:String
+    "boat_length": {
+        type: String
     },
-    "num_plate_city":{
-        type:String
+    "boat_engine": {
+        type: String
     },
-    "num_plate_type":{
-        type:String
+    "no_of_engine": {
+        type: String
     },
-    "plate_code":{
-        type:String
+    "inboard_outboard": {
+        type: String
     },
-    "num_plate_digits":{
-        type:Number
+    "maker": {
+        type: String,
+        required:true
     },
-    "plate_design":{
-        type:String
+    "model": {
+        type: String,
+        required:true
     },
-    "plate_num":{
-        type:String
+    "year": {
+        type: String,
+        required:true
     },
-    "body_type":{
-        type:String
+    "kilometers": {
+        type: Number,
+        required:true
     },
-    "vehicle_type":{
-        type:String
+    "warranty": {
+        type: Number,
+        required:true
     },
-    "heavy_vehicle_sub_type":{
-        type:String
+    "capacity": {
+        type: String,
+        required:true
     },
-    "boat_type":{
-        type:String
+    "usage": {
+        type: String
     },
-    "boat_sub_type":{
-        type:String
+    "final_driven_system": {
+        type: String
     },
-    "horse_power":{
-        type:Number
+    "wheel": {
+        type: String
     },
-    "age":{
-        type:Number
+    "engine_size": {
+        type: String
     },
-    "length":{
-        type:Number
+    "color": {
+        type: String,
+        required:true
     },
-    "usage":{
-        type:String
+    "regional_specs": {
+        type: String
     },
-    "final_driven_system":{
-        type:String
+    "chassis_no": {
+        type: String
     },
-    "wheel":{
-        type:Number
+    "transmission_type": {
+        type: String
     },
-    "doors":{
-        type:Number
+    "body_type": {
+        type: String
     },
-    "body_condition":{
-        type:String
+    "doors": {
+        type: String
     },
-    "boat_condition":{
-        type:String
+    "body_condition": {
+        type: String
     },
-    "boat_engine":{
-        type:String
+    "engine_condition": {
+        type: String
     },
-    "no_of_engines":{
-        type:Number
+    "on_of_cylinder": {
+        type: String
     },
-    "inpoard_outboard":{
-        type:String
+    "fuel_type": {
+        type: String
     },
-    "engine_condition":{
-        type:String
+    "horse_power": {
+        type: String
     },
-    "engine_size":{
-        type:Number
+    "steering_type": {
+        type: String
     },
-    "no_of_cylinder":{
-        type:Number
+    "seller_type": {
+        type: String
     },
-    "fuel_type":{
-        type:String
+    "axtras": {
+        type: Array
     },
-    "capacity":{
-        type:Number
+    "location": {
+        type: String
     },
-    "steering_side":{
-        type:String
+    "price": {
+        type: Number
     },
-    "seller_type":{
-        type:String
+    "call_for_price": {
+        type: Boolean
     },
-    "extras":{
-        type:Array
+    "quantity": {
+        type: Number
     },
-    "location":{
-        type:String
-    },
-    "price":{
-        type:Number
-    },
-    "call_for_price":{
-        type:Boolean
-    },
-    "quantity":{
-        type:Number
-    },
-    "slug":{
-        type:String
-    },
-});
+})
 
 export default mongoose.models.Vehicle || mongoose.model("Vehicle", VehicleSchema);
