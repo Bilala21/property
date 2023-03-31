@@ -77,6 +77,9 @@ const VehicleSchema = new Schema({
     "no_plate_digits": {
         type: String
     },
+    "no_plate_design": {
+        type: String
+    },
     "vehicle_sub_type": {
         type: String
     },
@@ -156,7 +159,7 @@ const VehicleSchema = new Schema({
     "engine_condition": {
         type: String
     },
-    "on_of_cylinder": {
+    "no_of_cylinder": {
         type: String
     },
     "fuel_type": {
@@ -171,7 +174,7 @@ const VehicleSchema = new Schema({
     "seller_type": {
         type: String
     },
-    "axtras": {
+    "extras": {
         type: Array
     },
     "location": {
