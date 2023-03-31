@@ -1,18 +1,19 @@
 import { useState } from "react";
 import selectedFiles from "../../../utils/selectedFiles";
 
-const PropertyMediaUploader = () => {
+const PropertyMediaUploader = ({setImages}) => {
   const [propertySelectedImgs, setPropertySelectedImgs] = useState([]);
-
   // multiple image select
   const multipleImage = (e) => {
     // checking is same file matched with old stored array
     const isExist = propertySelectedImgs?.some((file1) =>
       selectedFiles(e)?.some((file2) => file1.name === file2.name)
+      
     );
 
     if (!isExist) {
       setPropertySelectedImgs((old) => [...old, ...selectedFiles(e)]);
+      setImages(e)      
     } else {
       alert("You have selected one image already!");
     }
@@ -74,7 +75,7 @@ const PropertyMediaUploader = () => {
       </div>
       {/* End .col */}
 
-      <div className="col-xl-6 d-none">
+      {/* <div className="col-xl-6 d-none">
         <div className="resume_uploader mb30">
           <h3>Attachments</h3>
           <form className="form-inline d-flex flex-wrap wrap">
@@ -85,7 +86,7 @@ const PropertyMediaUploader = () => {
             </label>
           </form>
         </div>
-      </div>
+      </div> */}
       {/* End .col */}
 
       <div className="col-xl-12 d-none">

@@ -3,7 +3,7 @@ import User from "../model/User";
 import Category from "../model/Category";
 const Schema = mongoose.Schema;
 const PropertySchema = new Schema({
-    "category_id": {
+    "category": {
         type: mongoose.Schema.Types.ObjectId,
         ref: Category
     },
@@ -120,5 +120,6 @@ const PropertySchema = new Schema({
 }, {
     timestamps: true
 })
+
 
 export default mongoose.models.PropertyForSale || mongoose.model("PropertyForSale", PropertySchema);

@@ -1,9 +1,9 @@
 import mongoose from "mongoose";
-import User from "./User";
-import Category from "./Category";
+import User from "../model/User";
+import Category from "../model/Category";
 const Schema = mongoose.Schema;
 const PropertySchema = new Schema({
-    "category_id": {
+    "category": {
         type: mongoose.Schema.Types.ObjectId,
         ref: Category
     },
@@ -119,5 +119,11 @@ const PropertySchema = new Schema({
 }, {
     timestamps: true
 })
+PropertySchema.virtual('profile', {
+    ref: 'Profiles', // the collection/model name
+    localField: 'profile_id',
+    foreignField: '_id',
+    justOne: true, // default is false
+});
 
 export default mongoose.models.PropertyForSale || mongoose.model("PropertyForSale", PropertySchema);

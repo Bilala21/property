@@ -1,5 +1,5 @@
 import expressAsyncHandler from "express-async-handler";
-import ConnectToDb from "../../../dbConnection";
+import ConnectToDb from "../../../model/dbConnection";
 import Vehilce from "../../../model/Vehilce";
 import Category from "../../../model/Category";
 import PropertyForSale from "../../../model/PropertyForSale";
