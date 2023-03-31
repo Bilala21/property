@@ -3,13 +3,16 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addLength } from "../../../features/properties/propertiesSlice";
 import properties from "../../../data/properties";
+
 const FeaturedItem = () => {
   const { productsData } = useSelector(state => state.products)
-  const dateObj = new Date();
-  useEffect(() => {
-    if (Object.keys(productsData).length) {
-    }
-  }, [productsData])
+
+  // console.log(productsData.products,"productsData");
+  // const dateObj = new Date();
+  // useEffect(() => {
+  //   if (Object.keys(productsData).length) {
+  //   }
+  // }, [productsData])
 
 
   const {
@@ -157,7 +160,7 @@ const FeaturedItem = () => {
     }
   }
   if (Object.keys(productsData).length) {
-    let content = productsData.propertyForSale?.map((item) => (
+    let content = productsData.products?.map((item) => (
       <div
         className={`${isGridOrList ? "col-12 feature-list" : "col-md-6 col-lg-6"
           } `}
@@ -168,7 +171,7 @@ const FeaturedItem = () => {
             }`}
         >
           <div className="thumb">
-            <img className="img-whp" src={item.images[0]} alt="fp1.jpg" />
+            <img className="img-whp" src={"/uploads/"+item.images[0]} alt={item} />
             <div className="thmb_cntnt">
               <ul className="tag mb0">
                 <li className="list-inline-item">
@@ -234,7 +237,7 @@ const FeaturedItem = () => {
             </div>
             {/* End .tc_content */}
 
-            <div className="fp_footer">
+            <div className="fp_footer d-flex align-items-center justify-content-between">
               <ul className="fp_meta float-start mb0">
                 <li className="list-inline-item">
                   {/* <Link href="/agent-v2">
@@ -250,7 +253,7 @@ const FeaturedItem = () => {
                   </Link>
                 </li>
               </ul>
-              <div className="fp_pdate float-end">
+              <div className="fp_pdate float-end m-0">
                 {
                   postTime(item.createdAt)
                 }

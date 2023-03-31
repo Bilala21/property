@@ -8,7 +8,7 @@ import { useGetCategoryProductQuery } from "../../features/products/productApi";
 import { getProducts } from "../../features/products/productSlice";
 const Index = () => {
   const slug = useRouter().asPath.slice(1);
-  const { data, isLoading } = useGetCategoryProductQuery(slug);
+  const { data, isLoading } = useGetCategoryProductQuery("property-for-sale");
   const dispatch = useDispatch();
   useEffect(() => {
     if (!isLoading) {

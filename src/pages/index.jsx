@@ -11,6 +11,7 @@ const Seo = dynamic(() => import('../components/common/seo'));
 const Index = () => {
   const dispatch = useDispatch();
   const { data, isLoading } = useGetProductQuery();
+  // console.log(data);
   useEffect(() => {
     if (!isLoading) {
       dispatch(getProducts(data))

@@ -4,9 +4,11 @@ import find from "../../data/find";
 
 const LookingItem = () => {
   const {productsData} = useSelector(state =>state.products)
+  const{categories}=productsData.products;
+  console.log(categories);
   return (
     <>
-      {productsData.categories?.map((item) => (
+      {categories?.map((item) => (
         <li className="list-inline-item" key={item._id}>
           <div className="icon_home5">
             <div className="icon">

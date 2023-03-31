@@ -18,7 +18,8 @@ export default expressAsyncHandler(async (req, res) => {
     const form = new IncomingForm()
     form.parse(req, (err, fields, files) => {
       if (err) return reject(err)
-      Object.keys(files).forEach((index) => {
+      Object.keys(files).forEach((index) => {        
+        fields.images=[files[index].originalFilename];
         var oldPath = files[index].filepath;
         var newPath = `./public/uploads/${files[index].originalFilename}`;
         mv(oldPath, newPath, async function (err) {

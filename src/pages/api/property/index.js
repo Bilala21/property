@@ -15,7 +15,7 @@ export default expressAsyncHandler(async (req, res) => {
     if (slug === "property-for-sale") {
         let propertyForSale = await PropertyForSale.find({}).populate('PostedBy').populate("category").lean();
         if (propertyForSale) {
-            return res.send({ "status": 200, "message": "ok", propertyForSale});
+            return res.send({ "status": 200, "message": "ok", products:propertyForSale});
         }
     }
     return res.send({ "status": 404, "message": "Not found", data: [] });

@@ -10,7 +10,7 @@ export const productApi = api.injectEndpoints({
         }),
         getCategoryProduct: builder.query({            
             query: (slug) => ({
-                url: `/?${slug}`,
+                url: `property/?${slug}`,
                 method: "GET",
             }),
         }),
