@@ -37,7 +37,7 @@ const PropertySchema = new Schema({
     "condition": {
         type: String
     },
-    "propety_type": {
+    "property_type": {
         type: String
     },
     "featured": {

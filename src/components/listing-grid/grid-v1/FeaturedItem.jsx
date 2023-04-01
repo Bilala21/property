@@ -5,16 +5,7 @@ import { addLength } from "../../../features/properties/propertiesSlice";
 import properties from "../../../data/properties";
 
 const FeaturedItem = () => {
-  const { productsData } = useSelector(state => state.products)
-
-  // console.log(productsData.products,"productsData");
-  // const dateObj = new Date();
-  // useEffect(() => {
-  //   if (Object.keys(productsData).length) {
-  //   }
-  // }, [productsData])
-
-
+  const { productsData, search_query } = useSelector(state => state.products);
   const {
     keyword,
     location,
@@ -139,28 +130,48 @@ const FeaturedItem = () => {
   // status handler
   const postTime = (item) => {
     const postedDate = Math.round(new Date().getTime() / (1000 * 60) - new Date(item).getTime() / (1000 * 60));
-    console.log(new Date(postedDate).getDay());
     if (postedDate < 59) {
       return postedDate + " Min ago"
     }
-    if ((postedDate/60) < 24) {
-      return Math.round(postedDate/60) + " Hrs ago"
+    if ((postedDate / 60) < 24) {
+      return Math.round(postedDate / 60) + " Hrs ago"
     }
-    if ((postedDate/60) >= 24 && (postedDate/60) < 168) {
-      return Math.round(postedDate/60) + " Days ago"
+    if ((postedDate / 60) >= 24 && (postedDate / 60) < 168) {
+      return Math.round(postedDate / 60) + " Days ago"
     }
-    if ((postedDate/60) >= 168 && (postedDate/60) < 730) {
-      return Math.round(postedDate/60) + " Week ago"
+    if ((postedDate / 60) >= 168 && (postedDate / 60) < 730) {
+      return Math.round(postedDate / 60) + " Week ago"
     }
-    if ((postedDate/60) >= 760 && (postedDate/60) < 8760) {
-      return Math.round(postedDate/60) + " Months ago"
+    if ((postedDate / 60) >= 760 && (postedDate / 60) < 8760) {
+      return Math.round(postedDate / 60) + " Months ago"
     }
-    if ((postedDate/60) >=8760) {
-      return Math.round(postedDate/525600) + " Years ago"
+    if ((postedDate / 60) >= 8760) {
+      return Math.round(postedDate / 525600) + " Years ago"
     }
   }
+
   if (Object.keys(productsData).length) {
-    let content = productsData.products?.map((item) => (
+    let data = [...productsData.products];
+    productsData.products.filter(item => {
+      Object.keys(search_query).filter(index => {
+        data = [];
+        if (Array.isArray(search_query[index])) {
+          if (search_query[index].toString() === item[index].toString()) {
+            data.push(item)
+          }
+          else {
+            data = [];
+          }
+        }
+        else if (item[index].toLowerCase() === search_query[index].toLowerCase()) {
+          data.push(item)
+        }
+      })
+    });
+
+    console.log(data, "data");
+
+    let content = data?.map((item) => (
       <div
         className={`${isGridOrList ? "col-12 feature-list" : "col-md-6 col-lg-6"
           } `}
@@ -171,7 +182,7 @@ const FeaturedItem = () => {
             }`}
         >
           <div className="thumb">
-            <img className="img-whp" src={"/uploads/"+item.images[0]} alt={item} />
+            <img className="img-whp" src={"/uploads/" + item.images[0]} alt={item} />
             <div className="thmb_cntnt">
               <ul className="tag mb0">
                 <li className="list-inline-item">
@@ -264,11 +275,6 @@ const FeaturedItem = () => {
         </div>
       </div>
     ));
-
-    // add length of filter items
-    // useEffect(() => {
-    //   dispatch(addLength(content.length));
-    // }, [dispatch, addLength, content]);
 
     return <>{content}</>;
   }

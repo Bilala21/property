@@ -12,15 +12,18 @@ const Index = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     if (!isLoading) {
+      dispatch(getProducts([]))
       dispatch(getProducts(data))
     }
-  }, [isLoading])
-  return (
-    <>
-      <Seo pageTitle="Product Listing" />
-      <GridV1 />
-    </>
-  );
+  }, [data])
+  if(!isLoading){
+    return (
+      <>
+        <Seo pageTitle="Product Listing" />
+        <GridV1 />
+      </>
+    );
+  }
 };
 
 export default dynamic(() => Promise.resolve(Index), { ssr: false });

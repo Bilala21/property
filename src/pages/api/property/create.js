@@ -25,7 +25,7 @@ export default expressAsyncHandler(async (req, res) => {
         mv(oldPath, newPath, async function (err) {
           if (!err) {
             let data = undefined;
-            fields.slug = slugify(fields.propety_type.toLocaleLowerCase());
+            fields.slug = slugify(fields.property_type.toLocaleLowerCase());
             fields.category = slugify(fields.category_id.toLocaleLowerCase());
             delete fields.category_id;
             if (Object.keys(req.query)[0] === "property-for-sale") {

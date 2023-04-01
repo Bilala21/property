@@ -23,6 +23,7 @@ import {
 import PricingRangeSlider from "../../common/PricingRangeSlider";
 import { v4 as uuidv4 } from "uuid";
 import { useRouter } from "next/router";
+import { setFilterQuery } from "../../../features/products/productSlice";
 
 const FilteringItem = () => {
   const {
@@ -49,6 +50,8 @@ const FilteringItem = () => {
   const [getBuiltYear, setBuiltYear] = useState(yearBuilt);
   const [getAreaMin, setAreaMin] = useState(area.min);
   const [getAreaMax, setAreaMax] = useState(area.max);
+  const [property_types, setPropertyType] = useState([]);
+  const [searchQuery, setSearchQuery] = useState({});
 
   // advanced state
   const [getAdvanced, setAdvanced] = useState([
@@ -123,6 +126,10 @@ const FilteringItem = () => {
     dispath(dispath(addAreaMax(getAreaMax)));
   }, [dispath, addAreaMax, getAreaMax]);
 
+  useEffect(() => {
+    dispath(setFilterQuery(searchQuery))
+  }, [searchQuery])
+
   // clear filter
   const clearHandler = () => {
     clearAllFilters();
@@ -172,284 +179,384 @@ const FilteringItem = () => {
     setAdvanced(data);
   };
 
-  return (
-    <ul className="sasw_list mb0">
-      <li className="search_area">
-        <div className="form-group mb-3">
-          <input
-            type="text"
-            className="form-control"
-            placeholder="keyword"
-            value={getKeyword}
-            onChange={(e) => setKeyword(e.target.value)}
-          />
-          <label>
-            <span className="flaticon-magnifying-glass"></span>
-          </label>
-        </div>
-      </li>
-      {/* End li */}
+  const { productsData } = useSelector((state) => state.products)
+  if (productsData.status === 200) {
+    const sub_categories = productsData.categories.filter(item => item.slug === "property-for-sale");
+    const setFilter = (event) => {
+      if (event.target.id === "category") {
+        const productType = sub_categories[0].subCategory.filter(item => item.slug === event.target.value)
+        setPropertyType(productType[0].productType)
+        setSearchQuery(preState => {
+          return {
+            ...preState,
+            [event.target.name]: event.target.value
+          }
+        })
+      }
+      else if (event.target.id === "amenties") {
+        setSearchQuery(preState => {
+          if (preState?.amenties === undefined) {
+            return {
+              ...preState,
+              amenties: [event.target.value]
+            }
+          }
+          else {
+            console.log(preState.amenities, "preState.amenities");
+            return {
+              ...preState,
+              amenties: [...searchQuery.amenties, event.target.value]
+            }
+          }
 
-      <li className="search_area">
-        <div className="form-group mb-3">
-          <input
-            type="search"
-            className="form-control"
-            id="exampleInputEmail"
-            placeholder="Location"
-            value={getLocation}
-            onChange={(e) => setLocation(e.target.value)}
-          />
-          <label htmlFor="exampleInputEmail">
-            <span className="flaticon-maps-and-flags"></span>
-          </label>
-        </div>
-      </li>
-      {/* End li */}
+        })
+      }
+      else if (event.target.id !== "amenties" && event.target.id !== "category") {
+        setSearchQuery(preState => {
+          return {
+            ...preState,
+            [event.target.name]: event.target.value
+          }
+        })
+      }
+    }
 
-      <li>
-        <div className="search_option_two">
-          <div className="candidate_revew_select">
-            <select
-              onChange={(e) => setStatus(e.target.value)}
-              className="selectpicker w100 show-tick form-select"
-              value={getStatus}
-            >
-              <option value="">Status</option>
-              <option value="apartment">Apartment</option>
-              <option value="bungalow">Bungalow</option>
-              <option value="condo">Condo</option>
-              <option value="house">House</option>
-              <option value="land">Land</option>
-              <option value="single family">Single Family</option>
-            </select>
-          </div>
-        </div>
-      </li>
-      {/* End li */}
-
-      <li>
-        <div className="search_option_two">
-          <div className="candidate_revew_select">
-            <select
-              onChange={(e) => setPropertiesType(e.target.value)}
-              className="selectpicker w100 show-tick form-select"
-              value={getPropertiesType}
-            >
-              <option value="">Property Type</option>
-              <option value="apartment">Apartment</option>
-              <option value="bungalow">Bungalow</option>
-              <option value="condo">Condo</option>
-              <option value="house">House</option>
-              <option value="land">Land</option>
-              <option value="single family">Single Family</option>
-            </select>
-          </div>
-        </div>
-      </li>
-      {/* End li */}
-
-      <li>
-        <div className="small_dropdown2">
-          <div
-            id="prncgs2"
-            className="btn dd_btn"
-            data-bs-toggle="dropdown"
-            data-bs-auto-close="outside"
-            aria-expanded="false"
-          >
-            <span>Price Range</span>
-            <label htmlFor="prncgs2">
-              <span className="fa fa-angle-down"></span>
-            </label>
-          </div>
-          <div className="dd_content2 style2 dropdown-menu">
-            <div className="pricing_acontent ">
-              <PricingRangeSlider />
+    return (
+      <ul className="sasw_list mb0">
+        {
+          // keyword
+          <li className="search_area">
+            <div className="form-group mb-3">
+              <input
+                type="text"
+                className="form-control"
+                placeholder="keyword"
+                name="search_text"
+                id="search_text"
+                onChange={setFilter}
+              />
+              <label>
+                <span className="flaticon-magnifying-glass"></span>
+              </label>
             </div>
-          </div>
-        </div>
-      </li>
-      {/* End li */}
+          </li>
+        }
+        {
+          // country
 
-      <li>
-        <div className="search_option_two">
-          <div className="candidate_revew_select">
-            <select
-              onChange={(e) => setBathroom(e.target.value)}
-              className="selectpicker w100 show-tick form-select"
-              value={getBathroom}
-            >
-              <option value="">Bathrooms</option>
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-              <option value="6">6</option>
-            </select>
-          </div>
-        </div>
-      </li>
-      {/* End li */}
-
-      <li>
-        <div className="search_option_two">
-          <div className="candidate_revew_select">
-            <select
-              onChange={(e) => setBedroom(e.target.value)}
-              className="selectpicker w100 show-tick form-select"
-              value={getBedroom}
-            >
-              <option value="">Bedrooms</option>
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-              <option value="6">6</option>
-            </select>
-          </div>
-        </div>
-      </li>
-      {/* End li */}
-
-      <li>
-        <div className="search_option_two">
-          <div className="candidate_revew_select">
-            <select
-              onChange={(e) => setGarages(e.target.value)}
-              className="selectpicker w100 show-tick form-select"
-              value={getGarages}
-            >
-              <option value="">Garages</option>
-              <option value="yes">Yes</option>
-              <option value="no">No</option>
-              <option value="other">Others</option>
-            </select>
-          </div>
-        </div>
-      </li>
-      {/* End li */}
-
-      <li>
-        <div className="search_option_two">
-          <div className="candidate_revew_select">
-            <select
-              onChange={(e) => setBuiltYear(e.target.value)}
-              className="selectpicker w100 show-tick form-select"
-              value={getBuiltYear}
-            >
-              <option value="">Year built</option>
-              <option value="2013">2013</option>
-              <option value="2014">2014</option>
-              <option value="2015">2015</option>
-              <option value="2016">2016</option>
-              <option value="2017">2017</option>
-              <option value="2018">2018</option>
-              <option value="2019">2019</option>
-              <option value="2020">2020</option>
-            </select>
-          </div>
-        </div>
-      </li>
-      {/* End li */}
-
-      <li className="min_area list-inline-item">
-        <div className="form-group mb-4">
-          <input
-            type="number"
-            className="form-control"
-            id="exampleInputName2"
-            placeholder="Min Area"
-            value={getAreaMin}
-            onChange={(e) => setAreaMin(e.target.value)}
-          />
-        </div>
-      </li>
-      {/* End li */}
-
-      <li className="max_area list-inline-item">
-        <div className="form-group mb-4">
-          <input
-            type="number"
-            className="form-control"
-            id="exampleInputName3"
-            placeholder="Max Area"
-            value={getAreaMax}
-            onChange={(e) => setAreaMax(e.target.value)}
-          />
-        </div>
-      </li>
-      {/* End li */}
-
-      <li>
-        <div id="accordion" className="panel-group">
-          <div className="panel">
-            <div className="panel-heading">
-              <h4 className="panel-title">
-                <a
-                  href="#panelBodyRating"
-                  className="accordion-toggle link"
-                  data-bs-toggle="collapse"
-                  data-bs-parent="#accordion"
+          <li>
+            <div className="search_option_two">
+              <div className="candidate_revew_select">
+                <select
+                  className="selectpicker w100 show-tick form-select"
+                  id="country"
+                  name="country"
+                  onChange={setFilter}
                 >
-                  <i className="flaticon-more"></i> Advanced features
-                </a>
-              </h4>
-            </div>
-            {/* End .panel-heading */}
-
-            <div id="panelBodyRating" className="panel-collapse collapse">
-              <div className="panel-body row">
-                <div className="col-lg-12">
-                  <ul className="ui_kit_checkbox selectable-list fn-400">
-                    {getAdvanced?.map((feature) => (
-                      <li key={feature.id}>
-                        <div className="form-check custom-checkbox">
-                          <input
-                            type="checkbox"
-                            className="form-check-input"
-                            id={feature.id}
-                            value={feature.name}
-                            checked={feature.isChecked || false}
-                            onChange={(e) =>
-                              dispath(addAmenities(e.target.value))
-                            }
-                            onClick={() => advancedHandler(feature.id)}
-                          />
-                          <label
-                            className="form-check-label"
-                            htmlFor={feature.id}
-                          >
-                            {feature.name}
-                          </label>
-                        </div>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+                  <option value="">Country</option>
+                  <option value="pakistan">Pakistan</option>
+                  <option value="oman">Oman</option>
+                  <option value="UAE">UAE</option>
+                  <option value="Sudi arabia">Sudi Arabia</option>
+                </select>
               </div>
             </div>
-          </div>
-        </div>
-      </li>
-      {/* End li */}
+          </li>
 
-      <li>
-        <div className="search_option_button">
-          <button
-            onClick={clearHandler}
-            type="button"
-            className="btn btn-block btn-thm w-100"
-          >
-            Clear Filters
-          </button>
-        </div>
-      </li>
-      {/* End li */}
-    </ul>
-  );
+        }
+        {
+          // city
+          <li>
+            <div className="search_option_two">
+              <div className="candidate_revew_select">
+                <select
+                  className="selectpicker w100 show-tick form-select"
+                  id="city"
+                  name="city"
+                  onChange={setFilter}
+                >
+                  <option value="">City</option>
+                  <option value="lahore">Lahore</option>
+                  <option value="karachi">Karachi</option>
+                </select>
+              </div>
+            </div>
+          </li>
+        }
+
+        {
+          // category
+          <li>
+            <div className="search_option_two">
+              <div className="candidate_revew_select">
+                <select
+                  className="selectpicker w100 show-tick form-select"
+                  id="category"
+                  name="category"
+                  onChange={setFilter}
+                >
+                  <option value="">Category</option>
+                  {
+                    sub_categories[0].subCategory?.map(item => {
+                      return <option value={item.slug} key={item._id}>{item.name}</option>
+                    })
+                  }
+                </select>
+              </div>
+            </div>
+          </li>
+        }
+        {
+          // filters
+          property_types.length ?
+            <>
+              {
+                // product type
+                <li>
+                  <div className="search_option_two">
+                    <div className="candidate_revew_select">
+                      <select
+                        className="selectpicker w100 show-tick form-select"
+                        name="property_type"
+                        id="property_type"
+                        onChange={setFilter}
+                      >
+                        <option value="">Property Type</option>
+                        {
+                          property_types?.map(item => {
+                            return (
+                              <option value={item.slug} key={item._id}>{item.name}</option>
+                            )
+                          })
+                        }
+                      </select>
+                    </div>
+                  </div>
+                </li>
+              }
+
+              {
+                //  product price
+                // <li>
+                //   <div className="small_dropdown2">
+                //     <div
+                //       id="prncgs2"
+                //       className="btn dd_btn"
+                //       data-bs-toggle="dropdown"
+                //       data-bs-auto-close="outside"
+                //       aria-expanded="false"
+                //     >
+                //       <span>Price Range</span>
+                //       <label htmlFor="prncgs2">
+                //         <span className="fa fa-angle-down"></span>
+                //       </label>
+                //     </div>
+                //     <div className="dd_content2 style2 dropdown-menu">
+                //       <div className="pricing_acontent ">
+                //         <PricingRangeSlider />
+                //       </div>
+                //     </div>
+                //   </div>
+                // </li>
+              }
+
+              {
+                //  bathrooms
+                <li>
+                  <div className="search_option_two">
+                    <div className="candidate_revew_select">
+                      <select
+                        className="selectpicker w100 show-tick form-select"
+                        name="bathrooms"
+                        id="bathrooms"
+                        onChange={setFilter}
+                      >
+                        <option value="">Bathrooms</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                      </select>
+                    </div>
+                  </div>
+                </li>}
+
+
+              {
+                //  bedrooms
+                <li>
+                  <div className="search_option_two">
+                    <div className="candidate_revew_select">
+                      <select
+                        className="selectpicker w100 show-tick form-select"
+                        name="bedrooms"
+                        id="bedrooms"
+                        onChange={setFilter}
+                      >
+                        <option value="">Bedrooms</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                      </select>
+                    </div>
+                  </div>
+                </li>}
+
+              {
+                // seller type
+                <li>
+                  <div className="search_option_two">
+                    <div className="candidate_revew_select">
+                      <select
+                        className="selectpicker w100 show-tick form-select"
+                        name="seller_type"
+                        id="seller_type"
+                        onChange={setFilter}
+                      >
+                        <option value="">Seller Type</option>
+                        <option value="landlord">Landlord</option>
+                        <option value="owner">Owner</option>
+                      </select>
+                    </div>
+                  </div>
+                </li>
+              }
+
+
+              {
+                // minarea
+                <li className="min_area list-inline-item">
+                  <div className="form-group mb-4">
+                    <input
+                      type="number"
+                      className="form-control"
+                      placeholder="Min Area"
+                      name="minarea"
+                      id="minarea"
+                      onChange={setFilter}
+                    />
+                  </div>
+                </li>}
+
+              {
+                // maxarea
+                <li className="max_area list-inline-item">
+                  <div className="form-group mb-4">
+                    <input
+                      type="number"
+                      className="form-control"
+                      placeholder="Max Area"
+                      name="maxarea"
+                      id="maxarea"
+                      onChange={setFilter}
+                    />
+                  </div>
+                </li>
+              }
+
+              {
+                // minprice
+                <li className="min_area list-inline-item ">
+                  <div className="form-group mb-4">
+                    <input
+                      type="number"
+                      className="form-control"
+                      placeholder="Min Price"
+                      name="minprice"
+                      id="minprice"
+                      onChange={setFilter}
+                    />
+                  </div>
+                </li>}
+
+              {
+                // maxprice
+                <li className="max_area list-inline-item">
+                  <div className="form-group mb-4">
+                    <input
+                      type="number"
+                      className="form-control"
+                      placeholder="Max Price"
+                      name="maxprice"
+                      id="maxprice"
+                      onChange={setFilter}
+                    />
+                  </div>
+                </li>
+              }
+
+
+              <li>
+                <div id="accordion" className="panel-group">
+                  <div className="panel">
+                    <div className="panel-heading">
+                      <h4 className="panel-title">
+                        <a
+                          href="#panelBodyRating"
+                          className="accordion-toggle link"
+                          data-bs-toggle="collapse"
+                          data-bs-parent="#accordion"
+                        >
+                          <i className="flaticon-more"></i> Advanced features
+                        </a>
+                      </h4>
+                    </div>
+                    {/* End .panel-heading */}
+
+                    <div id="panelBodyRating" className="panel-collapse collapse">
+                      <div className="panel-body row">
+                        <div className="col-lg-12">
+                          <ul className="ui_kit_checkbox selectable-list fn-400">
+                            {getAdvanced?.map((feature) => (
+                              <li key={feature.id}>
+                                <div className="form-check custom-checkbox">
+                                  <input
+                                    type="checkbox"
+                                    className="form-check-input"
+                                    name="amenties"
+                                    id="amenties"
+                                    value={feature.name}
+                                    onChange={setFilter}
+                                  />
+                                  <label
+                                    className="form-check-label"
+                                    htmlFor={feature.id}
+                                  >
+                                    {feature.name}
+                                  </label>
+                                </div>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              {/* End li */}
+
+              <li>
+                <div className="search_option_button">
+                  <button
+                    onClick={clearHandler}
+                    type="button"
+                    className="btn btn-block btn-thm w-100"
+                  >
+                    Clear Filters
+                  </button>
+                </div>
+              </li>
+            </> : ""
+        }
+      </ul>
+    );
+  }
 };
 
 export default FilteringItem;

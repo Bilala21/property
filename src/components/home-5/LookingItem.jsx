@@ -4,7 +4,7 @@ import find from "../../data/find";
 
 const LookingItem = () => {
   const {productsData} = useSelector(state =>state.products)
-  const{categories}=productsData.products;
+  const{categories}=productsData;
   console.log(categories);
   return (
     <>

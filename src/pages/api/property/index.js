@@ -13,9 +13,10 @@ export default expressAsyncHandler(async (req, res) => {
     ConnectToDb();
     const slug = Object.keys(req.query)[0];
     if (slug === "property-for-sale") {
-        let propertyForSale = await PropertyForSale.find({}).populate('PostedBy').populate("category").lean();
-        if (propertyForSale) {
-            return res.send({ "status": 200, "message": "ok", products:propertyForSale});
+        let products = await PropertyForSale.find({}).populate('PostedBy').lean();
+        let categories = await Category.find({}).lean();
+        if (products) {
+            return res.send({ "status": 200, "message": "ok", products, categories});
         }
     }
     return res.send({ "status": 404, "message": "Not found", data: [] });
