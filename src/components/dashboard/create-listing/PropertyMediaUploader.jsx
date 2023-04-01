@@ -26,7 +26,7 @@ const PropertyMediaUploader = ({setImages}) => {
   };
 
   return (
-    <div className="row">
+    <div className="row m-0">
       <div className="col-lg-12">
         <ul className="mb-0">
           {propertySelectedImgs.length > 0

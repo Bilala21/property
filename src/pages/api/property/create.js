@@ -17,6 +17,7 @@ export default expressAsyncHandler(async (req, res) => {
   await new Promise((resolve, reject) => {
     const form = new IncomingForm()
     form.parse(req, (err, fields, files) => {
+      return res.send(Object.keys(fields))
       if (err) return reject(err)
       Object.keys(files).forEach((index) => {        
         fields.images=[files[index].originalFilename];
@@ -34,6 +35,7 @@ export default expressAsyncHandler(async (req, res) => {
             }
             if (Object.keys(req.query)[0] === "property-for-rent") {
               fields.featured = "for rent";
+             
               data = await PropertyForRent.create(fields);
             }
             if (data) {
