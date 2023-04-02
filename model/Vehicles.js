@@ -169,7 +169,7 @@ const VehicleSchema = new Schema({
     "horse_power": {
         type: String
     },
-    "steering_type": {
+    "steering_side": {
         type: String
     },
     "seller_type": {

@@ -64,7 +64,7 @@ const PropertySchema = new Schema({
     "type_of_tenant_allowed": {
         type: String
     },
-    "roome_type": {
+    "room_type": {
         type: String
     },
     "bathrooms": {

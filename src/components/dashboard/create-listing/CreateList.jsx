@@ -23,10 +23,60 @@ const CreateList = () => {
       }
       if (target_node.id === "product_category" && subCategories.length) {
         const slug = target_node.options[target_node.options.selectedIndex].getAttribute("data-slug");
-        console.log(slug,"slug");
         setPropertyTypes(subCategories[0].subCategory.filter(item => item.slug === slug))
+        setFieldControl(slug)
+        console.log(slug, "slug");
       }
     }
+    const fields = {
+      "property_type": {
+        type: "select",
+      },
+      "developer": {
+        type: "input",
+      },
+      "property_reference": {
+        type: "input",
+      },
+      "occupancy_statuce": {
+        type: "select",
+        options: ["vacant", "occupaid"]
+      },
+      "seller_type": {
+        type: "select",
+        options: ["landlord", "owner"]
+      },
+      "zoned_for": {
+        type: "input",
+      },
+      "bedrooms": {
+        type: "select",
+        options: [1, 2, 3, 4, 5],
+        form_field: ["residential-for-sale", "residential-for-rent"],
+      },
+      "bathrooms": {
+        type: "select",
+        options: [1, 2, 3, 4, 5],
+        form_field: ["residential-for-sale", "residential-for-rent"],
+      },
+    }
+    const fieldss = []
+    const fieldss1 = []
+
+    Object.keys(property_for_sale).filter((item, index) => {
+      if (fieldControl) {
+
+        if (property_for_sale[item]['form_field']?.includes(fieldControl)) {
+          // console.log(property_for_sale[item]);
+          fieldss.push(property_for_sale[item])
+        }
+        else {
+          // console.log(property_for_sale[item]);
+          // fieldss1.push(property_for_sale[item])
+        }
+      }
+    })
+    console.log("fieldss =>", fieldss);
     return (
       <div className="row m-0">
         {/* product categories */}
@@ -156,66 +206,47 @@ const CreateList = () => {
 
         {/* dynamic fields */}
         {
-          Object.keys(property_for_sale).map((item, index) => {
+          fieldss.length &&
+          fieldss.map((item, index) => {
             return (
-              <div className="col-xl-6 col-lg-6" key={index + item}>
-                {property_for_sale[item].type === "input" &&
-                  <div className="w-100">
+              <>
+                {
+                  item.element === "input" &&
+                  <div className="col-6">
                     <div className="my_profile_setting_input form-group">
-                      <label htmlFor="condition">{item.split('_').join(' ')[0].toUpperCase().slice(0) + item.split('_').join(' ').slice(1)}</label>
-                      <input type="text" className="form-control"
-                        placeholder={item.split('_').join(' ')[0].toUpperCase().slice(0) + item.split('_').join(' ').slice(1)}
-                        name={item}
-                        id={item}
+                      <label className="m-0" htmlFor={item?.label}>{item?.label?.split('_').join(' ')[0].toUpperCase().slice(0) + item?.label?.split('_').join(' ').slice(1)}</label>
+                      <input type={item?.type} className="form-control"
+                        placeholder={item?.label?.split('_').join(' ')[0].toUpperCase().slice(0) + item?.label?.split('_').join(' ').slice(1)}
+                        name={item?.label}
+                        id={item?.label}
                         onInput={handleFormField} />
                     </div>
                   </div>
                 }
-                {property_for_sale[item].type === "select" &&
-                  <div className="w-100">
+                {
+                  item.element === "select" &&
+                  <div className="col-6">
                     <div className="my_profile_setting_input ui_kit_select_search form-group">
-                      <label>
-                        {item.split('_').join(' ')[0].toUpperCase().slice(0) + item.split('_').join(' ').slice(1)}
-                      </label>
+                        <label className="m-0" htmlFor={item?.label}>{item?.label?.split('_').join(' ')[0].toUpperCase().slice(0) + item?.label?.split('_').join(' ').slice(1)}</label>
                       <select
                         className="selectpicker form-select"
                         data-live-search="true"
                         data-width="100%"
-                        name={item}
-                        id={item}
+                        name={item?.label}
+                        id={item?.label}
                         onInput={handleFormField}
                       >
-
-                        {
-                          (propertyTypes.length && item == "property_type") &&
-                          <>
-                            <option data-tokens="Status1">Select category type</option>
-                            {
-                              subCategories[0].subCategory?.map(category => <option data-tokens={category.slug} data-slug={category.slug} key={category._id}>{category.name}</option>)
-                            }
-                          </>
-                        }
-                        <>
-                          <option value="">Select {item.split('_').join(' ')}</option>
-                          {
-                            property_for_sale[item]?.options?.map(item => {
-                              return (
-                                <option value={item} key={item}>{item}</option>
-                              )
-                            })
-                          }
-                        </>
 
                       </select>
                     </div>
                   </div>
                 }
-              </div>
+              </>
             )
           })
         }
         {/* end dynamic fields */}
-        
+
         {/* quantity*/}
         <div className="row m-0">
           <div className="col-lg-6 col-xl-6 p-0">
